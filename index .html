@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>weather</title>
+<style>
+    body{
+background-image: url("https://i.ibb.co/h2p6Yhd/rain.webp");
+background-size: cover;
+margin-left: 160px;
+margin-right: 160px;
+margin-top: 40px;
+margin-bottom: 10px;
+
+}
+.web{
+    display: flex;
+
+}
+#city{
+    width: 90%;
+    height: 25px;
+    border-radius: 5px 0px 0px 5px;
+    font-size: 1em;
+    background-color: whitesmoke;
+    padding: 10px;
+    border: none;
+    outline: none;
+    
+   
+}
+button#search-btn{  
+    width: 20%;
+    height: 45px;
+    border: none;
+    background-color: rgb(8, 174, 251);
+    border-radius: 0px 5px 5px 0px;
+   
+}
+.weatherimage-1 img{
+    margin-top: 10px;
+    width: 170px;
+    height: 150px;
+    margin-left: 30px;
+   
+}
+
+.degree{
+    margin-top: 50px;
+    font-size: 4em;
+    
+    font-family:'Arial', sans-serif;
+
+}
+.fedegree{
+    margin-top: 50px;
+    font-size: 4em;
+    display: none;
+    font-family:'Arial', sans-serif;
+
+}
+.degreeo{
+    position: relative;
+    top:-13px;
+   font-size: 0.3em;
+   font-style: oblique;
+   font-family: 'Arial', sans-serif;
+}
+
+.search-temp p{
+    font-size: 1.1em;
+   font-style: oblique;
+   font-family: 'Arial', sans-serif;
+}
+.search-temp{
+    background-color:rgba(205, 205, 208, 0.915);
+    width: 450px;
+    min-height: 550px;
+    height: auto;
+    padding:20px;
+    border-radius: 15px 0px 0px 15px;
+}
+hr{
+    color: white;
+}
+.weather1 p{
+    font-size: 0.9em;
+   font-style: oblique;
+   text-align: center;
+   font-family: 'Arial', sans-serif;
+}
+.search-bar{
+    display: flex;
+}
+#city1{
+    font-style: oblique;
+   text-align: center;
+   margin-top: 130px;
+   font-family: 'Arial', sans-serif;
+   font-size: 1em;  
+}
+.weather{
+    background-color: whitesmoke;
+    min-width: 850px;
+    max-width: auto;
+    min-height: 550px;
+    display: flex;
+    border-radius: 0px 15px 15px 0px;
+}
+nav{
+    display: flex;
+     gap:200px;
+    margin-top: -20px;
+    margin-right: 0px;
+    
+    
+   
+}
+
+ul.list-1{
+    list-style: none;
+    display: flex;
+    gap:15px;
+    font-size: 1.2em;
+    
+   
+    
+}
+#name{
+    margin-top: 50px;
+    margin-left: 300px;
+}
+#an{
+    text-decoration: underline;
+    color: rgb(79, 23, 159);
+
+}
+
+#cf{
+    margin-left: 400px;
+ 
+}
+.btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  color: rgb(0, 0, 0);
+  background: rgb(255, 255, 255); 
+  transition: 0.3s;
+}
+
+.btn.active {
+  background: rgb(255, 255, 255);
+  color: black;
+  border: 1px solid black;
+}
+
+ #cf li{
+   margin-top: 15px;
+    width: 50px;
+    height: 20px;
+    
+} 
+#cf #c{
+    background-color: black;
+    border-radius: 50%;
+    padding: 5px;
+    text-align: center;
+    box-shadow: color(srgb 0 0 0 / 0.25) 0px 8px 16px 0px;
+
+}
+#cf #f{
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    padding: 5px;
+    text-align: center;
+    box-shadow: color(srgb 0 0 0 / 0.25) 0px 8px 16px 0px;
+
+}
+ #cf li .of{
+   margin-bottom: -20px;  
+   margin-right: 5px; 
+    color: rgb(0, 0, 0);
+    font-size: 1.2em;
+}
+#cf li .ofs{
+    margin-top: -10px;
+    margin-left: 10px;  
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    
+}
+#cf li .oc{
+   margin-bottom: -20px;  
+   margin-right: 5px; 
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+}
+#cf li .ocs{
+    margin-top: -10px;
+    margin-left: 10px;  
+    color: rgb(255, 255, 255);
+    font-size: 1em;
+    
+}
+
+
+a{
+   text-decoration: none; 
+    color: black;
+}
+.day{
+    
+    
+    box-shadow: color(srgb 0 0 0 / 0.25) 0px 8px 16px 0px;
+    width: 70px;
+    padding: 7px;
+    border-radius: 8px;
+    
+   
+    height: 100px;
+    text-align: center;
+   
+
+}
+.day img{
+    width:20px;
+    height: 20px;
+}
+.days{
+    display:flex;
+    gap :45px;
+    margin-left: 40px;
+    width: 900px; 
+
+}
+.days1{
+    
+    display:flex;
+    flex-wrap: wrap;
+    gap :45px;
+    margin-left: 40px;
+    width: 900px;
+
+}
+.day1-1{
+    
+  
+    
+    box-shadow: color(srgb 0 0 0 / 0.25) 0px 8px 16px 0px;
+    width: 70px;
+    padding: 7px;
+    border-radius: 8px;
+    height: 100px;
+    text-align: center;
+    display: none;
+    
+    
+   
+
+}
+#f{
+    background-color: rgb(255, 255, 255);
+}
+#week{
+    color:rgb(8, 174, 251) ;
+}
+.day1-1 img{
+    width:20px;
+    height: 20px;
+}
+
+.today1{
+    
+    margin-left: 40px;
+}
+.today-highlights{
+    display: flex;
+    flex-wrap: wrap;
+    gap :45px;
+    margin-bottom: 20px;
+}
+.highlights{
+
+
+box-shadow: color(srgb 0 0 0 / 0.25) 0px 8px 16px 0px;
+ width: 250px;
+    height: 120px;
+    padding-top: 10px;
+    padding-left: 10px;
+     border-radius: 13px;
+    
+
+}
+.highlights h4{
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+    <section class="web">
+        <div class="search-temp">
+            <div class="search-bar">
+                <input type="text" id="city" placeholder="Search....">
+                <button id="search-btn"></button>
+            </div>
+            <div class="weatherimage-1">
+                <img src="https://i.ibb.co/kBd2NTS/39.png" alt="weatherimage" id="weatherimage">
+            </div>
+
+            <div class="degree" id="degree">69<sup class="degreeo">o</sup><sup class="degreec">c</sup></div>
+            <div class="fedegree" id="fedegree">69<sup class="degreeo">o</sup><sup class="degreec">c</sup></div>
+
+            <p id="daytime">Saturday ,09:29</p>
+            <hr>
+            <div class="weather1" id="weather1">
+                <p>Rain,Partially Cloudy</p>
+                <p>Perc-0%</p>
+            </div>
+            <p id="city1">Delhi</p>
+        </div>
+        <div class="weather">
+            <div class="week">
+                <nav>
+                    <ul class="list-1">
+                        <li><a href="" id="today">
+                                <h4>Today</h4>
+                            </a></li>
+                        <li><a href="" id="week">
+                                <h4>Week</h4>
+                            </a></li>
+                    </ul>
+                    <ul class="list-1" id="cf">
+                        <li><button class="btn" id="c"><sup class="oc">o</sup>
+                                <h4 class="ocs" >C</h4>
+                            </button></li>
+                        <li><button class="btn" id="f"><sup class="of">o</sup>
+                                <h4 class="ofs">F</h4>
+                            </button></li>
+                    </ul>
+                </nav>
+
+                <div class="days" id="days">
+                    <div class="day" id="day">
+                        <div class="day-1">
+                            Saturday
+                        </div>
+                        <img src="https://i.ibb.co/PZQXH8V/27.png" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day">
+                        <div class="day-1">
+                            Friday
+                        </div>
+                        <img src="https://i.ibb.co/kBd2NTS/39.png" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day">
+                        <div class="day-1">
+                            Thursday
+                        </div>
+                        <img src="https://i.ibb.co/PZQXH8V/27.png" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day">
+                        <div class="day-1">
+                            Wednesday
+                        </div>
+                        <img src="https://i.ibb.co/1nxNGHL/10.png" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day">
+                        <div class="day-1">
+                            Tuesday
+                        </div>
+                        <img src="https://i.ibb.co/kBd2NTS/39.png" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day">
+                        <div class="day-1">
+                            Monday
+                        </div>
+                        <img src="https://i.ibb.co/kBd2NTS/39.png" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day">
+                        <div class="day-1">
+                            Sunday
+                        </div>
+                        <img src="https://i.ibb.co/1nxNGHL/10.png" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+
+
+
+
+
+
+                </div>
+                <div class="days1" id="days1">
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                    <div class="day1-1" id="day1-1">
+                        <div class="day-12">
+                            Saturday
+                        </div>
+                        <img src="" alt="img">
+                        <p>8<sup>0c</sup>
+                        </p>
+                    </div>
+                </div>
+                <div class="today1">
+                    <h3>Today's Highlights</h3>
+                    <div class="today-highlights">
+                        <div class="highlights">
+                            <div>uv index</div>
+                            <h4 id="uv">0</h4>
+                            <div>Moderate</div>
+                        </div>
+                        <div class="highlights">
+                            <div>Wind Status</div>
+                            <h4 id="ws">4.7</h4>
+                            <div>km/h</div>
+                        </div>
+                        <div class="highlights">
+                            <div>Sunrise & Sunset</div>
+                            <h4 id="ss">06:05:03</h4>
+                            <div id="sr">05:30:07</div>
+                        </div>
+                        <div class="highlights">
+                            <div>Humidity</div>
+                            <h4 id="h">94.1</h4>
+                            <div>High</div>
+                        </div>
+                        <div class="highlights">
+                            <div>Visibility</div>
+                            <h4 id="v">3.1</h4>
+                            <div>Very Clear Air</div>
+                        </div>
+                        <div class="highlights">
+                            <div>Air Quality</div>
+                            <h4 id="aq">23.9</h4>
+                            <div>Good</div>
+                        </div>
+                    </div>
+                </div>
+                <h4 id="name">Weather Prediction App by <a href="" id="an"> sowmya.M</a></h4>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        const weatherimages = {
+            "partly-cloudy-day": { icon: "https://i.ibb.co/PZQXH8V/27.png", bg: "https://i.ibb.co/qNv7NxZ/pc.webp" },
+            "partly-cloudy-night": { icon: "https://i.ibb.co/Kzkk59k/15.png", bg: "https://i.ibb.co/RDfPqXz/pcn.jpg" },
+            "rain": { icon: "https://i.ibb.co/kBd2NTS/39.png", bg: "https://i.ibb.co/h2p6Yhd/rain.webp" },
+            "clear-day": { icon: "https://i.ibb.co/rb4rrJL/26.png", bg: "https://i.ibb.co/WGry01m/cd.jpg" },
+            "clear-night": { icon: "https://i.ibb.co/1nxNGHL/10.png", bg: "https://i.ibb.co/kqtZ1Gx/cn.jpg" },
+            "default": { icon: "https://i.ibb.co/rb4rrJL/26.png", bg: "https://i.ibb.co/qNv7NxZ/pc.webp" }
+        };
+
+        function getWeather(city) {
+            return fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=EJ6UBL2JEQGYB3AA4ENASN62J&contentType=json`)
+                .then(response => response.json());
+        }
+
+        const input = document.getElementById("city");
+        const button = document.getElementById("search-btn");
+
+        button.addEventListener("click", () => {
+            const city = input.value.trim();
+            if (!city) {
+                console.log("Please enter a city name.");
+                return;
+            }
+
+            getWeather(city)
+                .then(data => {
+                    console.log(data);
+
+                    console.log("City:", data.resolvedAddress);
+
+                    const city1 = document.getElementById("city1");
+                    const degree = document.getElementById("degree");
+                    const fedegree = document.getElementById("fedegree");
+                    const cBtn = document.getElementById("c");
+                    const fBtn = document.getElementById("f");
+                    const c = document.getElementsByClassName("oc");
+                    const f = document.getElementsByClassName("of");
+                    const cs = document.getElementsByClassName("ocs");
+                    const fs = document.getElementsByClassName("ofs");
+
+                    let currentTempC = data.currentConditions.temp;
+
+
+                    function updateTemperature(tempC) {
+                        degree.innerHTML = `${tempC}<sup>°C</sup>`;
+                        fedegree.innerHTML = `${(tempC * 9 / 5 + 32).toFixed(1)}<sup>°F</sup>`;
+                        degree.style.display = "block";
+                        fedegree.style.display = "none";
+                    }
+
+
+                    cBtn.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        degree.style.display = "block";
+                        fedegree.style.display = "none";
+                        cBtn.style.background = "black"
+                        for (let i = 0; i < c.length; i++) {
+                            c[i].style.color = "white";
+
+                        }
+                        for (let i = 0; i < cs.length; i++) {
+                            cs[i].style.color = "white";
+
+                        }
+                        
+                        for (let i = 0; i < f.length; i++) {
+                            f[i].style.color = "black";
+                        }
+                        for (let i = 0; i < f.length; i++) {
+                            fs[i].style.color = "black";
+                        }
+
+                        fBtn.style.background = "white"
+
+                    });
+
+                    fBtn.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        degree.style.display = "none";
+                        fedegree.style.display = "block";
+                        fBtn.style.background = "black"
+                        for (let i = 0; i < c.length; i++) {
+                            c[i].style.color = "black";
+                        }
+                        for (let i = 0; i < c.length; i++) {
+                            cs[i].style.color = "black";
+                        }
+                        for (let i = 0; i < f.length; i++) {
+                            fs[i].style.color = "white";
+                        }
+                        for (let i = 0; i < f.length; i++) {
+                            f[i].style.color = "white";
+                        }
+                        cBtn.style.background = "white"
+
+                    });
+
+                    updateTemperature(currentTempC);
+
+                    const daytime = document.getElementById("daytime");
+                    const weather1 = document.getElementById("weather1");
+                    const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+
+                    const now = new Date();
+                    const currentDay = weekdays[now.getDay()];
+                    const hours = now.getHours();
+                    const minutes = now.getMinutes();
+
+                    const condition = data.currentConditions.icon || "default";
+                    const asset = weatherimages[condition] || weatherimages["default"];
+                    document.getElementById("weatherimage").src = asset.icon;
+                    document.body.style.backgroundImage = `url(${asset.bg})`;
+
+                    city1.innerHTML = data.resolvedAddress;
+
+
+                    let displayHour = hours % 12 || 12;   // convert 0 → 12, 13 → 1, etc.
+                    let period = hours >= 12 ? "PM" : "AM";
+                    daytime.innerHTML = `${currentDay} , ${displayHour < 10 ? "0" + displayHour : displayHour}:${minutes < 10 ? "0" + minutes : minutes} ${period}`;
+
+
+
+                    weather1.innerHTML = `<p>${data.currentConditions.conditions}</p>`;
+                    if (data.currentConditions.precip !== null) {
+                        weather1.innerHTML += `<p>Perc - ${data.currentConditions.precip}%</p>`;
+                    } else {
+                        weather1.innerHTML += `<p>Perc - ${data.currentConditions.precipprob}%</p>`;
+                    }
+
+
+                    const weatherContainer = document.getElementById('days');
+                    weatherContainer.innerHTML = '';
+
+                    data.days.forEach((day, index) => {
+                        if (index < 7) {
+                            const iconKey = day.icon || "default";
+                            const iconAsset = weatherimages[iconKey] || weatherimages["default"];
+                            const iconUrl = iconAsset.icon;
+
+                            const dayDate = new Date(day.datetime);
+                            const dayName = weekdays[dayDate.getDay()];
+
+                            const card = document.createElement("div");
+                            card.className = "day";
+                            card.innerHTML = `
+                        <div>${dayName}</div>
+                        <img src="${iconUrl}" alt="${iconKey}">
+                        <p>${day.tempmax}°C</p>`;
+                            weatherContainer.appendChild(card);
+                        }
+                    });
+                    const hourly = data.days[0].hours;
+
+                    const todayContainer = document.getElementById('days1');
+                    todayContainer.innerHTML = '';
+                    hourly.forEach(hour => {
+                        const iconKey = hour.icon || "default";
+                        const iconAsset = weatherimages[iconKey] || weatherimages["default"];
+                        const iconUrl = iconAsset.icon;
+
+                        const card = document.createElement('div');
+
+                        let hourNum = parseInt(hour.datetime);
+                        let period = hourNum >= 12 ? "PM" : "AM";
+                        hourNum = hourNum % 12 || 12;
+                        const hourTime = `${hourNum} ${period}`;
+                        card.className = 'day1-1';
+                        card.innerHTML = `
+        <div>${hourTime}</div>
+        <img src="${iconAsset.icon}" alt="${iconKey}">
+        <p>${hour.temp}°C</p>
+        
+    `;
+                        todayContainer.appendChild(card);
+                    });
+                    const uv = document.getElementById("uv")
+                    const ws = document.getElementById("ws")
+                    const ss = document.getElementById("ss")
+                    const sr = document.getElementById("sr")
+                    const h = document.getElementById("h")
+                    const v = document.getElementById("v")
+                    const aq = document.getElementById("aq")
+                    uv.innerHTML = `${data.currentConditions.uvindex}`
+                    ws.innerHTML = `${data.currentConditions.windspeed}`
+                    ss.innerHTML = `${data.currentConditions.sunrise}`
+                    sr.innerHTML = `${data.currentConditions.sunset}`
+                    h.innerHTML = `${data.currentConditions.humidity}`
+                    v.innerHTML = `${data.currentConditions.visibility}`
+                    aq.innerHTML = `${data.currentConditions.feelslike}`
+                    const today = document.getElementById("today");
+
+                    const week = document.getElementById("week");
+                    const today_day = document.querySelectorAll(".day1-1");
+                    const week_day = document.querySelectorAll(".day");
+
+                    today_day.forEach(td => td.style.display = "none");
+                    week_day.forEach(td => td.style.display = "block");
+
+                   
+                    today.addEventListener("click", (event) => {
+                        today.style.color = "rgb(8, 174, 251)"
+                        week.style.color = "rgba(0, 0, 0, 1)"
+                        city1.style.marginTop = "550px"
+
+                        event.preventDefault();
+                        today_day.forEach(td => td.style.display = "block");
+                        week_day.forEach(td => td.style.display = "none");
+
+
+                    });
+
+                    week.addEventListener("click", (event) => {
+
+                        week.style.color = "rgb(8, 174, 251)"
+                        today.style.color = "rgba(0, 0, 0, 1)"
+                        city1.style.marginTop = "130px"
+
+                        event.preventDefault();
+
+                        week_day.forEach(td => td.style.display = "block");
+                        today_day.forEach(td => td.style.display = "none");
+
+                    });
+                })
+                .catch(error => {
+                    console.error("Fetch failed:", error.message);
+                    const weather1 = document.getElementById("weather1");
+                    weather1.innerHTML = "Error fetching weather data";
+                });
+        });
+    </script>
+</body>
+
+</html>
